@@ -6,6 +6,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding text-center style='color: white;' (swipe)="swipeEvent($event)">
+  <div class="swipe-div" (swipe)="swipeEvent($event)">
+    <h4>Ionic Weather</h4>
+    <h6><strong>Version:</strong> 1.0.0</h6>
+    <br />
+    <h6>
+      This is a simple weather app created only for learning and practice purposes.
+    </h6>
+    <br />
+    <h5><ion-icon name="code"></ion-icon> with <ion-icon name="heart" style="color: red;"></ion-icon> by DE><TER</h5>
 
+  </div>
 </ion-content>

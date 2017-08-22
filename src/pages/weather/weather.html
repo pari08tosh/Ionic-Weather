@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ionic Weather</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div  *ngIf="showWeather" class="currentWeather" text-center (swipe)="swipeEvent($event)">
+    <h1><ion-icon name="pin" class="pin-icon" *ngIf="currentCity.gps"></ion-icon> {{currentWeather.name}}, IN</h1>
+    <img width="100" height="100" src="http://openweathermap.org/img/w/{{currentWeather.weather[0].icon }}.png">
+    <h6 text-uppercase>{{currentWeather.weather[0].description}}</h6>
+    <h1>{{currentWeather.main.temp}} &#8451;</h1>
+    <br />
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h6><strong>Max Temp:</strong> {{dailyWeather.list[1].temp.max}}</h6>
+        </ion-col>
+        <ion-col>
+          <h6><strong>Min Temp:</strong> {{dailyWeather.list[1].temp.min}}</h6>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h6><strong>Humidity:</strong> {{currentWeather.main.humidity}} %</h6>
+        </ion-col>
+        <ion-col>
+          <h6><strong>Pressure:</strong> {{currentWeather.main.pressure}} hPa</h6>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h6><strong>Wind Speed:</strong> {{currentWeather.wind.speed}} m/s</h6>
+        </ion-col>
+        <ion-col>
+          <h6><strong>Cloudiness:</strong> {{currentWeather.clouds.all}} %</h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

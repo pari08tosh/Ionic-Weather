@@ -1,0 +1,24 @@
+page-weather {
+
+}
+
+.currentWeather {
+  min-height: 95%;
+  color: color($colors, light);
+  max-width: 1000px;
+  position: relative;
+  top:0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pin-icon {
+  font-size: 90%;
+}
+
+h6 {
+  margin: 5px;
+}

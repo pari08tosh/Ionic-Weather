@@ -11,4 +11,11 @@ export class AboutPage {
 
   }
 
+  swipeEvent(e) {
+    if (e.direction == '4') {
+       this.navCtrl.parent.select(1, {animate: true});
+    }
+  }
+
+
 }

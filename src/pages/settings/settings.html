@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="setting-content">
+  <div class="swipe-div" (swipe)="swipeEvent($event)">
+    <div *ngIf="currentCity">
+      <ion-list *ngIf="!gps">
+        <ion-item class="current-city">
+          <h2>Location By City</h2>
+          <br />
+          <h1>{{cityName}}, IN</h1>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="gps">
+        <ion-item class="current-city">
+          <h1>Using Your Location</h1>
+          <br />
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <h2>Latitute: {{lat}}</h2>
+              </ion-col>
+              <ion-col>
+                <h2>Longitude: {{lon}}</h2>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ion-searchbar [(ngModel)]="searchString" class="search-bar" (ionInput)="onInput()" placeholder="Change City"></ion-searchbar>
+    <ion-list *ngIf="showList" class="city-list">
+      <ion-item *ngFor="let city of searchList" (click)="selectCity(city)" class="searchList">
+        {{city.name}}, IN
+      </ion-item>
+    </ion-list>
+    <ion-list></ion-list>
+    <ion-list class="location-btn" *ngIf="currentCity">
+      <h4 class="current-city">OR</h4>
+      <button *ngIf="!gps"ion-button icon-start round (click)="getAndStoreLocation()"><ion-icon name="pin"></ion-icon> Use Location</button>
+      <button *ngIf="gps"ion-button icon-start round (click)="getAndStoreLocation()"><ion-icon name="pin"></ion-icon> Refresh Location</button>
+    </ion-list>
+  </div>
+</ion-content>
